@@ -9,11 +9,14 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+
+    @IBOutlet weak var nameLabel: UILabel!
+
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var regionTextField: UITextField!
     @IBOutlet weak var countryTextField: UITextField!
-    @IBOutlet weak var nameErrorLabel: UILabel!
 
+    @IBOutlet weak var nameErrorLabel: UILabel!
     @IBOutlet weak var regionDropdown: UIPickerView!
 
     var countries: [Country] = []
@@ -30,7 +33,17 @@ class LoginViewController: UIViewController {
 
 
     @IBAction func didTapSubmitButton(_ sender: UIButton) {
+        if nameTextField.text == "" {
+            checkNameTextField(true)
+            return
+        }
+
         performSegue(withIdentifier: "goToProfileViewController", sender: nil)
+    }
+
+    @IBAction func didTapClearButton(_ sender: UIButton) {
+        nameTextField.text = ""
+        regionTextField.text = ""
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -63,18 +76,28 @@ extension LoginViewController {
 
 extension LoginViewController: UITextFieldDelegate {
 
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-        let allowedCharacters = CharacterSet.letters
-        let characterSet = CharacterSet(charactersIn: string)
-        if allowedCharacters.isSuperset(of: characterSet) == false {
+    fileprivate func checkNameTextField(_ flag: Bool) -> Bool {
+        if flag {
             nameErrorLabel.text = "Cannot Contain Alphanumeric Characters"
             nameErrorLabel.isHidden = false
+            nameLabel.textColor = .red
+            nameTextField.backgroundColor = .red
             return false
         } else {
             nameErrorLabel.isHidden = true
+            nameLabel.textColor = .black
+            nameTextField.backgroundColor = .white
             return true
         }
+    }
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        var allowedCharacters = CharacterSet.letters
+        allowedCharacters.insert(charactersIn: " ")
+        let characterSet = CharacterSet(charactersIn: string)
+
+        return checkNameTextField(allowedCharacters.isSuperset(of: characterSet) == false)
 
     }
 }
@@ -121,7 +144,7 @@ extension LoginViewController: UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        countryTextField.text = countries[row].region
+        regionTextField.text = countries[row].region
         selectedCountry = countries[row]
     }
 }
