@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		7B1B1CB029E6825B0035B442 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B1CAF29E6825B0035B442 /* AppDelegate.swift */; };
 		7B1B1CB229E6825B0035B442 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B1CB129E6825B0035B442 /* SceneDelegate.swift */; };
-		7B1B1CB429E6825B0035B442 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B1CB329E6825B0035B442 /* ViewController.swift */; };
+		7B1B1CB429E6825B0035B442 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B1CB329E6825B0035B442 /* LoginViewController.swift */; };
 		7B1B1CB729E6825B0035B442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B1B1CB529E6825B0035B442 /* Main.storyboard */; };
 		7B1B1CB929E6825D0035B442 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1B1CB829E6825D0035B442 /* Assets.xcassets */; };
 		7B1B1CBC29E6825D0035B442 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B1B1CBA29E6825D0035B442 /* LaunchScreen.storyboard */; };
+		7B44181129E686A600A88CAB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44181029E686A600A88CAB /* Model.swift */; };
+		7B44181529E6892500A88CAB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44181429E6892500A88CAB /* ProfileViewController.swift */; };
 		FE67DBF84C0786DFB22C9F35 /* Pods_Travel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E70F0797BC77713BD7D5360 /* Pods_Travel.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,11 +23,13 @@
 		7B1B1CAC29E6825B0035B442 /* Travel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B1B1CAF29E6825B0035B442 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B1B1CB129E6825B0035B442 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7B1B1CB329E6825B0035B442 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7B1B1CB329E6825B0035B442 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7B1B1CB629E6825B0035B442 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7B1B1CB829E6825D0035B442 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B1B1CBB29E6825D0035B442 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B1B1CBD29E6825D0035B442 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B44181029E686A600A88CAB /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		7B44181429E6892500A88CAB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C24F04C3408939DBB167C48B /* Pods-Travel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel.release.xcconfig"; path = "Target Support Files/Pods-Travel/Pods-Travel.release.xcconfig"; sourceTree = "<group>"; };
 		E911BEF52C2B2A2B9DCEF75C /* Pods-Travel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel.debug.xcconfig"; path = "Target Support Files/Pods-Travel/Pods-Travel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -48,7 +52,6 @@
 				E911BEF52C2B2A2B9DCEF75C /* Pods-Travel.debug.xcconfig */,
 				C24F04C3408939DBB167C48B /* Pods-Travel.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -75,13 +78,39 @@
 			children = (
 				7B1B1CAF29E6825B0035B442 /* AppDelegate.swift */,
 				7B1B1CB129E6825B0035B442 /* SceneDelegate.swift */,
-				7B1B1CB329E6825B0035B442 /* ViewController.swift */,
-				7B1B1CB529E6825B0035B442 /* Main.storyboard */,
+				7B44181729E6909C00A88CAB /* View */,
+				7B44181629E6908700A88CAB /* ViewController */,
+				7B44181829E690A100A88CAB /* Model */,
 				7B1B1CB829E6825D0035B442 /* Assets.xcassets */,
 				7B1B1CBA29E6825D0035B442 /* LaunchScreen.storyboard */,
 				7B1B1CBD29E6825D0035B442 /* Info.plist */,
 			);
 			path = Travel;
+			sourceTree = "<group>";
+		};
+		7B44181629E6908700A88CAB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7B1B1CB329E6825B0035B442 /* LoginViewController.swift */,
+				7B44181429E6892500A88CAB /* ProfileViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7B44181729E6909C00A88CAB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B1B1CB529E6825B0035B442 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7B44181829E690A100A88CAB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B44181029E686A600A88CAB /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E79FC9AB2E210333863448C5 /* Frameworks */ = {
@@ -189,9 +218,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B1B1CB429E6825B0035B442 /* ViewController.swift in Sources */,
+				7B1B1CB429E6825B0035B442 /* LoginViewController.swift in Sources */,
 				7B1B1CB029E6825B0035B442 /* AppDelegate.swift in Sources */,
+				7B44181529E6892500A88CAB /* ProfileViewController.swift in Sources */,
 				7B1B1CB229E6825B0035B442 /* SceneDelegate.swift in Sources */,
+				7B44181129E686A600A88CAB /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
