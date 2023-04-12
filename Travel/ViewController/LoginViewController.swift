@@ -93,12 +93,13 @@ extension LoginViewController {
                     let countries = try JSONDecoder().decode([Country].self, from: data)
 
                     // Display unique region values & alphabetical order
-                    for country in countries {
-                        // need high order function .map
-                    }
+                    // need high order function .map
+
+                    // From StackOverflow
+                    let uniqueContries = countries.unique { $0.region }.sorted(by: { $0.region < $1.region })
 
                     DispatchQueue.main.async { [weak self] in
-                        self?.countries = countries
+                        self?.countries = uniqueContries
                         self?.regionDropdown.reloadAllComponents()
                     }
                 } catch {
@@ -134,5 +135,22 @@ extension LoginViewController: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return countries.count
+    }
+}
+
+// MARK: - From Stack
+
+extension Array {
+    func unique<T:Hashable>(by: ((Element) -> (T)))  -> [Element] {
+        var set = Set<T>() //the unique list kept in a Set for fast retrieval
+        var arrayOrdered = [Element]() //keeping the unique list of elements but ordered
+        for value in self {
+            if !set.contains(by(value)) {
+                set.insert(by(value))
+                arrayOrdered.append(value)
+            }
+        }
+
+        return arrayOrdered
     }
 }
